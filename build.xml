@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="tac-service">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="Web App Libraries.libraryclasspath">
+        <pathelement location="WebContent/WEB-INF/lib/aopalliance-repackaged-2.4.0-b09.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/asm-debug-all-5.0.2.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/hk2-api-2.4.0-b09.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/hk2-locator-2.4.0-b09.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/hk2-utils-2.4.0-b09.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javassist-3.18.1-GA.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.annotation-api-1.2.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.inject-2.4.0-b09.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.servlet-api-3.0.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.servlet.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.ws.rs-api-2.0.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jaxb-api-2.2.7.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/je-4.0.103.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-client.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-common.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-container-servlet-core.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-container-servlet.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-guava-2.16.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-media-jaxb.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-server.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/org.osgi.core-4.2.0.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/osgi-resource-locator-1.0.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/persistence-api-1.0.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/validation-api-1.1.0.Final.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/wikipedia-miner.jar"/>
+    </path>
+    <path id="EAR Libraries.libraryclasspath"/>
+    <path id="Apache Tomcat v7.0 [Apache Tomcat v7.0].libraryclasspath">
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/annotations-api.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/catalina-ant.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/catalina-ha.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/catalina-tribes.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/catalina.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/ecj-4.2.2.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/el-api.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/jasper-el.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/jasper.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/jsp-api.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/servlet-api.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/tomcat-api.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/tomcat-coyote.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/tomcat-dbcp.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/tomcat-i18n-es.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/tomcat-i18n-fr.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/tomcat-i18n-ja.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/tomcat-jdbc.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/tomcat-util.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/tomcat7-websocket.jar"/>
+        <pathelement location="../../../../Program Files (x86)/tomcat7/lib/websocket-api.jar"/>
+    </path>
+    <path id="tac-service.classpath">
+        <pathelement location="build/classes"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-client.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-common.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-container-servlet-core.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-container-servlet.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-media-jaxb.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-server.jar"/>
+        <path refid="Apache Tomcat v7.0 [Apache Tomcat v7.0].libraryclasspath"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.servlet.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/aopalliance-repackaged-2.4.0-b09.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/asm-debug-all-5.0.2.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/hk2-api-2.4.0-b09.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/hk2-locator-2.4.0-b09.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/hk2-utils-2.4.0-b09.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javassist-3.18.1-GA.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.annotation-api-1.2.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.inject-2.4.0-b09.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.servlet-api-3.0.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.ws.rs-api-2.0.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jaxb-api-2.2.7.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-guava-2.16.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/org.osgi.core-4.2.0.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/osgi-resource-locator-1.0.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/persistence-api-1.0.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/validation-api-1.1.0.Final.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/wikipedia-miner.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/je-4.0.103.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="build/classes"/>
+        <copy includeemptydirs="false" todir="build/classes">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="build/classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="build/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="tac-service.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+	<target name="war" description="Bundles the application as a WAR file" depends="clean, build">
+	    <mkdir dir="WebContent/WEB-INF/classes"/>
+	     
+	    <copy includeemptydirs="false" todir="WebContent/WEB-INF/classes">
+	            <fileset dir="build/classes">
+	            <include name="**/*.class"/>
+	            </fileset>
+	    </copy>
+	     
+	    <war destfile="tac-service.war"
+	        basedir="WebContent"
+	        needxmlfile="false">
+	    </war>
+	</target>
+</project>
