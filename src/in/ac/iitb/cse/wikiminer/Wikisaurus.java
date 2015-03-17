@@ -20,7 +20,8 @@ public class Wikisaurus {
 
 	static WikipediaConfiguration conf;
 	public static Wikipedia _wikipedia = null;
-	static String wikiMinerConfigFile;
+//	static String wikiMinerConfigFile="/home/ashish/wikipedia-miner-1.2.0/configs/wikiminer-ak.xml";
+	static String wikiMinerConfigFile="/mnt/bag3/ram/WikipediaMiner/wikipedia-miner-1.2.0/configs/wm-config.xml";
 
 	public Wikisaurus() {
 		this(SpotterServiceProperties.getInstance().getWikiMinerConfPath());
@@ -28,8 +29,9 @@ public class Wikisaurus {
 
 	public Wikisaurus(String wikiminerConfig) {
 		try {
-			wikiMinerConfigFile = wikiminerConfig;
-			conf = new WikipediaConfiguration(new File(wikiminerConfig));
+			if(null!=wikiminerConfig)
+				wikiMinerConfigFile = wikiminerConfig;
+			conf = new WikipediaConfiguration(new File(wikiMinerConfigFile));
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
