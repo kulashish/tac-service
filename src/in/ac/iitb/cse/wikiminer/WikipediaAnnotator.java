@@ -30,11 +30,17 @@ public class WikipediaAnnotator {
 		this.wikisaurus = wikisaurus;
 		wikiPre = new WikiPreprocessor(wikisaurus._wikipedia);
 		wikiDis = new Disambiguator(wikisaurus._wikipedia);
-		wikiDis.loadClassifier(new File("/home/ashish/wikipedia-miner-1.2.0/models/annotate/disambig_en_In.model"));
+		wikiDis.loadClassifier(new File(
+				"/home/ashish/wikipedia-miner-1.2.0/models/annotate/disambig_en_In.model"));
 		wikiTop = new TopicDetector(wikisaurus._wikipedia, wikiDis, true, false);
 		wikiLink = new LinkDetector(wikisaurus._wikipedia);
-		wikiLink.loadClassifier(new File("/home/ashish/wikipedia-miner-1.2.0/models/annotate/detect_en_In.model"));
+		wikiLink.loadClassifier(new File(
+				"/home/ashish/wikipedia-miner-1.2.0/models/annotate/detect_en_In.model"));
 		tagger = new WikiTagger();
+	}
+
+	public List<String> getMentions(String text) throws Exception {
+		return new WikiMarkup().extractMentions(annotate(text));
 	}
 
 	public String annotate(String text) throws Exception {
