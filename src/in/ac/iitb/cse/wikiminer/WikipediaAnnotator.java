@@ -2,6 +2,7 @@ package in.ac.iitb.cse.wikiminer;
 
 import java.io.Console;
 import java.io.IOException;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -29,8 +30,10 @@ public class WikipediaAnnotator {
 		this.wikisaurus = wikisaurus;
 		wikiPre = new WikiPreprocessor(wikisaurus._wikipedia);
 		wikiDis = new Disambiguator(wikisaurus._wikipedia);
+		wikiDis.loadClassifier(new File("/home/ashish/wikipedia-miner-1.2.0/models/annotate/disambig_en_In.model"));
 		wikiTop = new TopicDetector(wikisaurus._wikipedia, wikiDis, true, false);
 		wikiLink = new LinkDetector(wikisaurus._wikipedia);
+		wikiLink.loadClassifier(new File("/home/ashish/wikipedia-miner-1.2.0/models/annotate/detect_en_In.model"));
 		tagger = new WikiTagger();
 	}
 
