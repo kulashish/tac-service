@@ -4,6 +4,7 @@ import java.io.Console;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.wikipedia.miner.annotation.Disambiguator;
 import org.wikipedia.miner.annotation.Topic;
@@ -33,12 +34,13 @@ public class WikipediaAnnotator {
 		tagger = new WikiTagger();
 	}
 
-	public void annotate(String text) throws Exception {
+	public String annotate(String text) throws Exception {
 		PreprocessedDocument preDoc = wikiPre.preprocess(text);
 		Collection<Topic> allTopics = wikiTop.getTopics(preDoc, null);
 		ArrayList<Topic> bestTopics = wikiLink.getBestTopics(allTopics, 0.1);
 		String newMarkup = tagger.tag(preDoc, allTopics, RepeatMode.ALL);
 		System.out.println("\nAugmented markup:\n" + newMarkup + "\n");
+		return newMarkup;
 	}
 
 	public static void main(String[] args) {
@@ -46,11 +48,17 @@ public class WikipediaAnnotator {
 		try {
 			WikipediaAnnotator annotator = new WikipediaAnnotator(wiki);
 			Console console = System.console();
+			String marked = null;
+			WikiMarkup markup = new WikiMarkup();
+			List<String> mentions = null;
 			while (true) {
 				String text = console.readLine("Please enter : ");
 				if (text.equalsIgnoreCase("exit"))
 					break;
-				annotator.annotate(text);
+				marked = annotator.annotate(text);
+				mentions = markup.extractMentions(marked);
+				for (String m : mentions)
+					System.out.println(m);
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
