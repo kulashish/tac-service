@@ -3,6 +3,7 @@ package in.ac.iitb.cse.wikiproject;
 import in.ac.iitb.cse.wikiminer.TextFolder;
 import in.ac.iitb.cse.wikiminer.Wikisaurus;
 
+import java.io.Console;
 import java.io.File;
 
 import javax.ws.rs.GET;
@@ -44,24 +45,29 @@ public class Spotter {
 		conf.setDefaultTextProcessor(new TextFolder());
 		Wikipedia wikipedia = new Wikipedia(conf, false);
 
-		Article article = wikipedia.getArticleByTitle("Wikipedia");
-		System.out.println("Received article...");
-		System.out.println(article);
-		Label label = wikipedia.getLabel("Wikipedia");
-		System.out.println("Received label...");
-		System.out.println(label);
-		if (label != null) {
-			Sense[] senses = label.getSenses();
-			System.out.println("Received senses..." + senses);
-			System.out.println("Number of senses: " + senses.length);
-			if (senses.length == 0)
-				System.out.println(senses[0].getTitle());
-			else
-				for (Sense s : senses) {
-					System.out.println(s.getTitle());
-				}
+		// Article article = wikipedia.getArticleByTitle("Wikipedia");
+		// System.out.println("Received article...");
+		// System.out.println(article);
+		Console console = System.console();
+		while (true) {
+			String token = console.readLine("Please enter a token: ");
+			if (token.equalsIgnoreCase("exit"))
+				break;
+			Label label = wikipedia.getLabel(token);
+			System.out.println("Received label...");
+			System.out.println(label);
+			if (label != null) {
+				Sense[] senses = label.getSenses();
+				System.out.println("Received senses..." + senses);
+				System.out.println("Number of senses: " + senses.length);
+				if (senses.length == 0)
+					System.out.println("Could not find that term!");
+				else
+					for (Sense s : senses) {
+						System.out.println(s.getTitle());
+					}
+			}
 		}
-
 		wikipedia.close();
 	}
 }
